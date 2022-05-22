@@ -163,8 +163,25 @@ def progress_game(self):
                 pass
 
     def user_wins(self):
+          """
+        This fucntion will be carried out when the user score equals 3
+        
+        """
+        print('')
+        print("You did it! I never doubter you sailor! ")
+        print("Those pesky water-goers wont be coming back any time soon! ")
+        print("To start the battle again click RUN PROGRAM at the top")
 
     def computer_wins(self):
+        """
+        This fucntion will be carried out when the computer score equals 3
+        
+        """
+        print('')
+        print("Oh no... we have lost all our ships.. ")
+        print("We have been defeated.. its time to go")
+        print("Defeated...")
+        print("To start the battle again click RUN PROGRAM at the top")
 
     # def coin_flip(user_board, computer_board):
 
