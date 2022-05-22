@@ -24,7 +24,7 @@ class GameArea:
 
 def user_choose_ship_placement(self):
         """
-        This function is created to allow the player to chose the location of all the ships 
+        This function allows the user to place their 3 ships 
         it verfies all the data input by user is correct and if not then sends error message
         it will loop to allow for a re input
         """
@@ -79,6 +79,43 @@ def user_choose_ship_placement(self):
                 coin_flip(user_board, computer_board)
     
     def user_turn_place_hit(self):
+         """
+        Function will allow user to type in coordinates
+        to hit.
+        it will display if it is a hit or miss.
+        it will also verify input is correct
+        """
+        while True:
+            print('')
+            print("Time to take your shot!")
+            print('')
+            self.display_computer_board()
+            y_coord = self.column_map[self.validate_y_coordinate()]
+            x_coord = int(self.validate_x_coordinate())
+            if self.board_array[x_coord, y_coord] == '|O|':
+                self.computer_displayed_board[x_coord, y_coord] = '|X|'
+                self.board_array[x_coord, y_coord] = '|X|'
+                print('')
+                print('That was a hit! Good job, we can beat them!')
+                print('')
+                self.user_score += 1
+                break
+            elif self.computer_displayed_board[x_coord, y_coord] == '|X|':
+                print('')
+                print("This place has already been hit! Try another..")
+            elif self.computer_displayed_board[x_coord, y_coord] == '|-|':
+                print('')
+                print("This place has already been hit! Try another..")
+            else:
+                self.computer_displayed_board[x_coord, y_coord] = '|-|'
+                print('')
+                print("SPLASH... thats a miss.")
+                print('')
+                break
+        self.display_computer_board()
+        if self.user_score < 3:
+            user_board.computer_turn_place_hit()
+
 
     def computer_turn_place_hit(self):
 
