@@ -22,7 +22,7 @@ class GameArea:
         self.computer_score = 0
         self.column_map = {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6}
 
-def user_choose_ship_placement(self):
+def user_place_ship(self):
         """
         This function allows the user to place their 3 ships 
         it verfies all the data input by user is correct and if not then sends error message
@@ -73,19 +73,19 @@ def user_choose_ship_placement(self):
                 print('')
                 print("Great job placing the ships! Let's start the game!")
                 print('')
-                computer_board.randomize_ship_coordinates()
+                # computer_board.randomize_ship_coordinates()
                 self.display_board()
                 self.display_computer_board()
-                coin_flip(user_board, computer_board)
+                # coin_flip(user_board, computer_board)
     
-    def user_turn_place_hit(self):
+def user_shoot(self):
          """
         Function will allow user to type in coordinates
         to hit.
         it will display if it is a hit or miss.
         it will also verify input is correct
         """
-        while True:
+while True:
             print('')
             print("Time to take your shot!")
             print('')
@@ -112,20 +112,61 @@ def user_choose_ship_placement(self):
                 print("SPLASH... thats a miss.")
                 print('')
                 break
-        self.display_computer_board()
-        if self.user_score < 3:
-            user_board.computer_turn_place_hit()
+self.display_computer_board()
+if self.user_score < 3:
+        user_board.computer_shoot()
 
 
-    def computer_turn_place_hit(self):
+def computer_shoot(self):
+        """
+        This fuction automatically carries out the computers turn 
+        and displays the results.
+        """
+        print('')
+        print("Watch out they are firing...")
+        while True:
+            y_target = random.randint(1, 5)
+            x_target = random.randint(1, 5)
+            if self.board_array[x_target, y_target] == '|X|':
+                continue
+            elif self.board_array[x_target, y_target] == '|-|':
+                continue
+            elif self.board_array[x_target, y_target] == '|O|':
+                self.board_array[x_target, y_target] = '|X|'
+                print('')
+                print('Ouchhh. we have lost a ship..')
+                self.computer_score += 1
+                print('')
+                break
+            else:
+                self.board_array[x_target, y_target] = '|-|'
+                print('')
+                print("Phew.. close one")
+                print('')
+                break
+        self.display_board()
 
-    def computer_turn_place_hit(self):
+def progress_game(self):
+        """
+        This function will continue in a loop 
+        until the player or computer score reaches 3
+        """
+        while True:
+            computer_board.user_shoot()
+            if (computer_board.user_score) == 3:
+                computer_board.user_wins()
+                break
+            elif (user_board.computer_score) == 3:
+                user_board.computer_wins()
+                break
+            else:
+                pass
 
     def user_wins(self):
 
     def computer_wins(self):
 
-    def coin_flip(user_board, computer_board):
+    # def coin_flip(user_board, computer_board):
 
     def start_game():
 
