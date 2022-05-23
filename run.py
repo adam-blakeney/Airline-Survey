@@ -233,13 +233,21 @@ def introduction():
             end_game()
             break
         else:
-            print('')
+            print('---')
             print("You must type either 'go' or 'no'!")
-            print('')
+            print('---')
+
 
     def end_game():
-        
+        """
+    This function is used if the user decides to stop playing and will display a message
+    """
+    print("---")
+    print("Come back soon! To start again click [Run Program!] at the top.")
+    print("---")
+
 
     def main():
+        
 
 
