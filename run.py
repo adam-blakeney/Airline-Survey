@@ -186,9 +186,37 @@ def computer_wins(self):
 
     # def coin_flip(user_board, computer_board):
 
-    def start_game():
+def start_game():
+        """
+    This function is used to call functions which will start the game and set it up
+    """
+    global user_board
+    global computer_board
+    user_board = GameBoard("name=user")
+    computer_board = GameBoard("name=computer")
+    user_board.ask_user_ship_placement()
+    computer_board.progress_game()
 
-    def introduction():
+
+def introduction():
+        """
+    Initial message to introduce title of the game.
+    Input will appear for user to type in their name.
+    While loop will ensure that user does not leave
+    the name input empty.
+    Paragraph will appear to explain rules of the game
+    and ask user if they wish to continue.
+    """
+    print('-' * 40)
+    print("BattleShip")
+    print('-' * 40)
+    print('')
+    print("Welcome to BattleShip the game")
+    print(intro_instructions)
+    print('')
+    print("Get ready they are coming...")
+    print('')
+
 
     def ask_user_ready():
 
