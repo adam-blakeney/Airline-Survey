@@ -219,8 +219,26 @@ def introduction():
 
 
     def ask_user_ready():
+        """
+    This function is written to give the user control over when to start the game.
+    it is given by either a 'go' or 'no' response
+        """
+    while True:
+        confirmation_response = input("go or no?\n").lower()
+
+        if confirmation_response == 'go':
+            start_game()
+            break
+        elif confirmation_response == 'no':
+            end_game()
+            break
+        else:
+            print('')
+            print("You must type either 'go' or 'no'!")
+            print('')
 
     def end_game():
+        
 
     def main():
 
