@@ -218,7 +218,7 @@ def introduction():
     print('')
 
 
-    def ask_user_ready():
+    def ask_user_start():
         """
     This function is written to give the user control over when to start the game.
     it is given by either a 'go' or 'no' response
@@ -248,6 +248,11 @@ def introduction():
 
 
     def main():
-        
+        """
+    Main code to execute the entire game. Will introduce the game and
+    ask the user if they are ready to play.
+    """
+    introduction()
+    ask_user_start()
 
 
