@@ -204,7 +204,8 @@ print("To start the battle again click RUN PROGRAM at the top")
 
 def start_game():
     """
-    This function is used to call functions which will start the game and set it up
+    This function is used to call functions which will start the game 
+    and set it up
     """
 
 
@@ -274,6 +275,6 @@ def main():
     ask the user if they are ready to play.
     """
 
-    
+  
 introduction()
 ask_user_start()
