@@ -106,8 +106,8 @@ def submit():
     user_submit = input("Please enter yes or no: \n")
     lower_submit = user_submit.lower()
     if lower_submit == "yes":
-        print("Thank you!")
-        print(f"Hope you and have a lovely day!{idents.user['First-Name']}  \n")
+        print("Thank you for your time and hope to see you soon!")
+        print(f"Hope you and have a great day!{idents.user['First-Name']}  \n")
     elif lower_submit == "no":
         main_repeated()
     else:
