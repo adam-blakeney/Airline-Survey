@@ -9,21 +9,41 @@ class GameArea:
     """
     def __init__(self, name):
         self.name = name
-        # Code credit on self.board layout 
-        # https://github.com/Damianjacob/MS3-Battleship-Game
         self.board = [
-            [" ",  " A", "  B", "  C", "  D", "  E"],
-            ["1", "| |", "| |", "| |", "| |", "| |"],
-            ["2", "| |", "| |", "| |", "| |", "| |"],
-            ["3", "| |", "| |", "| |", "| |", "| |"],
-            ["4", "| |", "| |", "| |", "| |", "| |"],
-            ["5", "| |", "| |", "| |", "| |", "| |"],
+            [" ", "A", "B", "C", "D", "E"],
+            ["1", "~", "~", "~", "~", "~"],
+            ["2", "~", "~", "~", "~", "~"],
+            ["3", "~", "~", "~", "~", "~"],
+            ["4", "~", "~", "~", "~", "~"],
+            ["5", "~", "~", "~", "~", "~"],
         ]
         self.board_array = np.array(self.board)
         self.computer_displayed_board = np.array(self.board)
         self.user_score = 0
         self.computer_score = 0
         self.column_map = {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6}
+
+
+def display_board(self):
+    """
+    Will display the user's board back
+    to the user.
+    """
+    print(f"\n {user_name}'s Board:\n")
+    for row in user_board.board_array:
+        joint_row = "  ".join(row)
+        print(f"{joint_row}\n")
+
+def display_computer_board(self):
+    """
+    Will display the empty computer board
+    to the user.
+    """
+    print("Enemy's Board:\n")
+    for row in self.computer_displayed_board:
+        joint_row = "  ".join(row)
+        print(f"{joint_row}\n")
+
 
 
 def user_place_ship(self):
@@ -211,8 +231,8 @@ def start_game():
 
 global user_board
 global computer_board
-user_board = GameBoard("name=user")
-computer_board = GameBoard("name=computer")
+user_board = GameArea("name=user")
+computer_board = GameArea("name=computer")
 user_board.ask_user_ship_placement()
 computer_board.progress_game()
 
