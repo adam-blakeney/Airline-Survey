@@ -21,6 +21,7 @@ def intro():
     """
     print("Welcome to AirLine surveys EU!")
     print("Please choose one of the following options.")
+    print("select option by typing the word.")
     choice = input("Start, Instructions or About: \n")
     choice = choice.lower()
     if choice == "start":
@@ -54,7 +55,7 @@ def idents():
     idents.user = dict.fromkeys(idents_data, user_input)
     idents.user['First-Name'] = input("Please type your first name: \n")
     idents.user['Last-Name'] = input("Please type your second name: \n")
-    
+
 
 def feedback():
     """
