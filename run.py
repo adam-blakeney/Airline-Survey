@@ -137,7 +137,7 @@ def main():
     print("Today's date is:", today)
     print("Please answer the below questions.")
     print("Your answer should be a figure between 0-5")
-    print("0 = Thoroughly disagree; 5 = Very much agree.\n")
+    print("0 = I really disagree (poor); 5 = I couldn't fault it.(perfect)\n")
     feedback()
     print(f"Thank you {idents.user['First-Name']}!")
     print(f"Here are your final answers: {feedback.final_answers}")
