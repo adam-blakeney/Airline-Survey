@@ -15,20 +15,6 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('airline_survey')
 
 
-def idents():
-    """
-    This is where the user enters their credentials
-    """
-    idents_data = ['First-Name', 'Last-Name']
-    user_input = ''
-    idents.user = dict.fromkeys(idents_data, user_input)
-    idents.user['First-Name'] = input("Please type your first name: \n")
-    idents.user['Last-Name'] = input("Please type your second name: \n")
-    if not user_input.isalpha():
-        print("Error: Symbols were used, please try again.")
-        idents()
-
-
 def intro():
     """
     Will explain to user the purpose of the app.
@@ -59,6 +45,17 @@ def intro():
         intro()
 
 
+def idents():
+    """
+    This is where the user enters their credentials
+    """
+    idents_data = ['First-Name', 'Last-Name']
+    user_input = ''
+    idents.user = dict.fromkeys(idents_data, user_input)
+    idents.user['First-Name'] = input("Please type your first name: \n")
+    idents.user['Last-Name'] = input("Please type your second name: \n")
+    
+
 def feedback():
     """
     Feedback input from user.
@@ -72,7 +69,7 @@ def feedback():
         "How would you rate youe in flight experience?",
         "How comfortable did you feel on your whole journey?",
         "How were the staff towards you on your journey?",
-        "How likely are you to reccommend us to someone?"
+        "How likely are you to recommend us to someone?"
     ]
 
     for survey in surveys:
@@ -125,6 +122,7 @@ def user_data(data):
     update_sheet = SHEET.worksheet("names")
     update_sheet.append_row(data)
     print("Answers sent! Thank you!")
+    print("Have a nice day!:)")
 
 
 def main():
@@ -140,7 +138,7 @@ def main():
     print("Your answer should be a figure between 0-5")
     print("0 = Thoroughly disagree; 5 = Very much agree.\n")
     feedback()
-    print(f"Thank you {idents().user['Name']}!")
+    print(f"Thank you {idents.user['First-Name']}!")
     print(f"Here are your final answers: {feedback.final_answers}")
     submit()
     user_data(feedback.final_answers)
