@@ -1,6 +1,7 @@
+from datetime import date
 import gspread
 from google.oauth2.service_account import Credentials
-# from datetime import date
+
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -12,6 +13,7 @@ CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('airline_survey')
+
 
 def idents():
     """
@@ -37,7 +39,8 @@ def intro():
     choice = choice.lower()
     if choice == "start":
         print("Thank you for taking time to complete this survey")
-        print("We are always looking to imporve your AirLine experience with your help!")
+        print("We are always looking to imporve your AirLine experience")
+        print("With your help we hope to achieve that!")
     elif choice == "instructions":
         print("Instructions:")
         print("- You will be shown 5 quick questions on your experience")
@@ -48,13 +51,12 @@ def intro():
     elif choice == "about":
         print("Our questions has been put together to:")
         print("- Find out how happy our customers are with us.")
-        print("- See what our customers think of what we offer.")
-        print("- To help us improve what we offer. \n")
+        print("- See what our customers think of our service.")
+        print("- To help us improve your experience. \n")
         intro()
     else:
         print("Please choose one of the above options. \n")
         intro()
-
 
 
 def feedback():
@@ -90,7 +92,7 @@ def get_answer(low, high, prompt):
             if low <= int(answer) <= high:
                 return int(answer)
             else:
-                print("Number not between 0-5")
+                print("Make sure your answer is between 0-5")
         else:
             print("This is not a number, please try again.")
 
@@ -119,10 +121,10 @@ def user_data(data):
     """
     To collect all of users data and push to google sheet.
     """
-    print("Sending answers.....\n")
-    update_sheet = SHEET.worksheet("customers")
+    print("Submitting your answers.....\n")
+    update_sheet = SHEET.worksheet("names")
     update_sheet.append_row(data)
-    print("Answers sent!")
+    print("Answers sent! Thank you!")
 
 
 def main():
